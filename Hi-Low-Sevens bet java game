@@ -1,0 +1,152 @@
+
+/**
+ * 
+ * @version 10/29/2020
+ *
+ */
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+public class HiLowSevens {
+
+    /**
+     * Prompts the user for an amount to bet. Ensures that the amount will be
+     * between 0 and the maximum number of dollars they have available.
+     *
+     */
+    public static int promptForAmount(Scanner in, int maxDollars) {
+        System.out.println("You have " + maxDollars + " dollars.");
+        System.out.print("Enter an amount to bet (0 to quit): ");
+        String scnr = in.nextLine();
+        
+        int amount = Integer.parseInt(scnr);
+        
+        while (amount > maxDollars || amount < 0) {
+           System.out.println("Your bet must be between 0 and " + maxDollars + " dollars.");
+           System.out.println("You have " + maxDollars + " dollars.");
+           System.out.print("Enter an amount to bet (0 to quit): ");
+           scnr = in.nextLine();
+           amount = Integer.parseInt(scnr);
+        }
+        
+        return amount;
+    }
+
+    /**
+     * Prompts the user to enter a single character and ensures that the user
+     * must input either an 'H', an 'L' or an 'S'. If they enter a correct
+     * character in lowercase, converts it to uppercase.
+     *
+     */
+    public static char promptForChoice(Scanner in) {
+        System.out.print("High, low or sevens (H/L/S)?: ");
+        String scnr = in.nextLine().toUpperCase();
+        String valid = "HLS";
+        
+        while (scnr.length() != 1 || valid.indexOf(scnr) < 0 ) {
+           System.out.println("You must enter only H, L or S.");
+           System.out.print("High, low or sevens (H/L/S)?: ");
+           scnr = in.nextLine().toUpperCase();
+        }
+        
+        char ch = scnr.charAt(0);
+        
+        return ch;
+    }
+
+    /**
+     * Returns an array of length numDice where each entry holds a random value
+     * between 1 and 6 (representing the roll of a single die).
+     *
+     */
+    public static int[] rollDice(Random rnd, int numDice) {
+        int[] arr;
+        arr = new int[numDice];
+        
+        for (int i = 0; i < arr.length; i++) {
+           int pos = rnd.nextInt(6) + 1;
+           arr[i] = pos;
+        }
+        
+        
+        System.out.println("Your dice are showing: " + Arrays.toString(arr));
+        
+        return arr;
+    }
+
+    /**
+     * Returns the sum of all of the values in the array dice. Note that this
+     * method should be able to be called with an arbitrary number of dice so do
+     * not hardcode it to only work with 2 dice.
+     *
+     */
+    public static int totalDice(int[] dice) {
+        int sum = 0;
+        
+        for (int i = 0; i < dice.length; i++) {
+           sum = dice[i] + sum;
+        }
+        
+        return sum;
+    }
+
+    /**
+     * Returns the amount won or lost according to the choice made, the total on
+     * the dice and the bet. If the choice is 'S' and the total is 7 this is 4
+     * times the bet. If the choice is 'H' and the total is >=8 this is the same
+     * as the bet. If the choice is 'L' and the total is <=6 - it is also the
+     * same as the bet Otherwise, the player has lost and this function returns
+     * the negative value of their bet.
+     *
+     */
+    public static int determineWinnings(char choice, int total, int bet) {
+        int win = 0;
+        
+        if (choice == 'L' && total < 7) {
+           win = bet;
+        } else if (choice == 'H' && total > 7) {
+           win = bet;
+        } else if (choice == 'S' && total == 7) {
+           win = 4 * bet;
+        } else {
+           win = -1 * bet;
+        }
+        
+        return win;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter a random seed: "); //taking input from user
+        String str = input.nextLine();
+        int seed = Integer.parseInt(str); //turning the string inout to int
+        Random rnd = new Random(seed); //creating random num based on seed given by user
+        
+        int maxValue = 100;
+        int wager = promptForAmount(input, maxValue);
+        
+        while (wager > 0) {
+         char choice = promptForChoice(input);
+         int[] arr = rollDice(rnd, 2);
+         int total = totalDice(arr);
+            System.out.println("Your total is: " + total);
+         int win = determineWinnings(choice, total, wager); 
+         
+            if (win < 0) {
+               System.out.println("You lost your bet!"); 
+            } else {
+               System.out.println("You won " + win + " dollars!"); 
+            }
+            maxValue = maxValue + win;
+               System.out.println(); 
+            wager =  promptForAmount(input, maxValue);
+        }
+        
+        System.out.println();
+        System.out.println("You ended the game with " + maxValue +" dollars left.");
+        System.out.println("Goodbye!");
+    }
+
+}
