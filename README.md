@@ -1,8 +1,8 @@
 - 👋 Hi, I’m @SwimSwag10
-- 👀 I’m interested in blockchain
-- 🌱 I’m currently learning IPFS
-- 💞️ I’m looking to collaborate on decentralized storage
-- 📫 How to reach me justinfleagle@gmail.com
+- 👀 I’m interested in web scraping, decentralized storage networks & healthcare
+- 🌱 I’m currently learning AWS CDK, DynamoDB, web scraping, AWS Lambdas, Serverless.
+- 💞️ I’m looking to collaborate on web scraping projects using Sveltekit, AWS serverless DynamoDB and Node.js
+- 📫 How to reach me - justinfleagle@gmail.com
 
 <!---
 SwimSwag10/SwimSwag10 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
