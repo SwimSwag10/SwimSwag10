@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @SwimSwag10
-- 👀 I’m interested in web scraping, decentralized storage networks & healthcare
-- 🌱 I’m currently learning AWS CDK, DynamoDB, web scraping, AWS Lambdas, Serverless.
-- 💞️ I’m looking to collaborate on web scraping projects using Sveltekit, AWS serverless DynamoDB and Node.js
+- 👀 I’m interested in healthcare, decentralization, and computer vision.
+- 🌱 I’m currently learning CNN (Convolutional Neural Networks), Transformers, CV (Computer Vision), RegNet, and BiFPN.
+- 💞️ I’m looking to collaborate on AWS serverless projects
 - 📫 How to reach me - justinfleagle@gmail.com
 
 <!---
