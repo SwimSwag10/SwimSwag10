@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @SwimSwag10
 - 👀 I’m interested in healthcare, decentralization, and computer vision.
 - 🌱 I’m currently learning CNN (Convolutional Neural Networks), Transformers, CV (Computer Vision), RegNet, and BiFPN.
-- 💞️ I’m looking to collaborate on AWS serverless projects
+- 💞️ I’m looking for engineers experienced in CV and CNN models.
 - 📫 How to reach me - justinfleagle@gmail.com
 
 <!---
